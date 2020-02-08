@@ -14,6 +14,7 @@ public abstract class Creature {
         if (hp <= 0){
             alive = false;
         }
+        System.out.println("Received " + dmg + " dmg");
     }
 
     public int getHp() {
