@@ -12,10 +12,20 @@ public class App {
         Player player = PlayerCreator.createPlayer();
         List<Monster> monsters = MonsterCreationUtil.createMonsters();
 
-        monsters.get(0).receiveDamage(player.attack());
-        monsters.stream().filter(m -> m.isAlive())
-                .forEach(singleMonster -> player.receiveDamage(singleMonster.attack()));
-        System.out.println(monsters);
+        while (player.isAlive() && monsters.stream().anyMatch(m -> m.isAlive())) {
+
+            monsters.stream()
+                    .filter(m -> m.isAlive())
+                    .findFirst()
+                    .get()
+                    .receiveDamage(player.attack());
+
+
+            monsters.stream().filter(m -> m.isAlive())
+                    .forEach(singleMonster -> player.receiveDamage(singleMonster.attack()));
+            System.out.println(monsters);
+        }
+
     }
 
 
