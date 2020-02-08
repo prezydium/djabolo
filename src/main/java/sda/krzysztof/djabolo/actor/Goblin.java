@@ -1,4 +1,6 @@
-package sda.krzysztof.djabolo;
+package sda.krzysztof.djabolo.actor;
+
+import sda.krzysztof.djabolo.WeaponType;
 
 public class Goblin extends Monster {
 
